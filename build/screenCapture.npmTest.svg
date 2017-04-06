@@ -7,7 +7,7 @@
 <tspan x="10" y="74">&gt; (set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)</tspan>
 <tspan x="10" y="90"></tspan>
 <tspan x="10" y="106"></tspan>
-<tspan x="10" y="122">[MODE_BUILD=npmTest] - 2017-04-06T23:22:14Z - npm-testing /home/travis/build/npmdoc/node-npmdoc-\</tspan>
+<tspan x="10" y="122">[MODE_BUILD=npmTest] - 2017-04-06T23:23:49Z - npm-testing /home/travis/build/npmdoc/node-npmdoc-\</tspan>
 <tspan x="10" y="138">google-closure-compiler-js</tspan>
 <tspan x="10" y="154"></tspan>
 <tspan x="10" y="170"></tspan>
@@ -15,13 +15,13 @@
 <tspan x="10" y="202">c-google-closure-compiler-js/test.js</tspan>
 <tspan x="10" y="218">merging file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/build/test-r\</tspan>
 <tspan x="10" y="234">eport.json to test-report</tspan>
-<tspan x="10" y="250">&gt; server listening on http-port 64134</tspan>
+<tspan x="10" y="250">&gt; server listening on http-port 63498</tspan>
 <tspan x="10" y="266">created apidoc file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/build\</tspan>
 <tspan x="10" y="282">/apidoc.html</tspan>
 <tspan x="10" y="298"></tspan>
 <tspan x="10" y="314"></tspan>
 <tspan x="10" y="330">browserTest - created electron entry-page /home/travis/build/npmdoc/node-npmdoc-google-closure-c\</tspan>
-<tspan x="10" y="346">ompiler-js/tmp/electron.15b459355d50.d284c1132be6b.html</tspan>
+<tspan x="10" y="346">ompiler-js/tmp/electron.15b4594cd000.83af1b27a9031.html</tspan>
 <tspan x="10" y="362"></tspan>
 <tspan x="10" y="378">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 <tspan x="10" y="394">[node test-case 1 of 6 passed] - testCase_buildLib_default</tspan>
@@ -29,34 +29,34 @@
 <tspan x="10" y="426">[node test-case 3 of 6 passed] - testCase_buildTest_default</tspan>
 <tspan x="10" y="442"></tspan>
 <tspan x="10" y="458">browserTest - created electron entry-page /home/travis/build/npmdoc/node-npmdoc-google-closure-c\</tspan>
-<tspan x="10" y="474">ompiler-js/tmp/electron.15b4593569f0.f93ccaf3da20c.html</tspan>
+<tspan x="10" y="474">ompiler-js/tmp/electron.15b4594ce3d0.4255e47b202f.html</tspan>
 <tspan x="10" y="490"></tspan>
 <tspan x="10" y="506">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 <tspan x="10" y="522">merging file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/build/test-r\</tspan>
 <tspan x="10" y="538">eport.json to test-report</tspan>
 <tspan x="10" y="554">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
-<tspan x="10" y="570">[4908:0406/232216:WARNING:audio_manager.cc(314)] Multiple instances of AudioManager detected</tspan>
-<tspan x="10" y="586">[4908:0406/232216:WARNING:audio_manager.cc(275)] Multiple instances of AudioManager detected</tspan>
-<tspan x="10" y="602">&gt; server listening on http-port 63803</tspan>
-<tspan x="10" y="618">[4948:0406/232216:ERROR:sandbox_linux.cc(343)] InitializeSandbox() called with multiple threads \</tspan>
+<tspan x="10" y="570">[6642:0406/232352:WARNING:audio_manager.cc(314)] Multiple instances of AudioManager detected</tspan>
+<tspan x="10" y="586">[6642:0406/232352:WARNING:audio_manager.cc(275)] Multiple instances of AudioManager detected</tspan>
+<tspan x="10" y="602">&gt; server listening on http-port 54338</tspan>
+<tspan x="10" y="618">[6685:0406/232352:ERROR:sandbox_linux.cc(343)] InitializeSandbox() called with multiple threads \</tspan>
 <tspan x="10" y="634">in process gpu-process. </tspan>
-<tspan x="10" y="650">[4908:0406/232216:ERROR:browser_gpu_channel_host_factory.cc(131)] Failed to create channel.</tspan>
-<tspan x="10" y="666">merging file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/build/test-r\</tspan>
-<tspan x="10" y="682">eport.json to test-report</tspan>
-<tspan x="10" y="698">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
-<tspan x="10" y="714">[4923:0406/232216:WARNING:audio_manager.cc(314)] Multiple instances of AudioManager detected</tspan>
-<tspan x="10" y="730">[4923:0406/232216:WARNING:audio_manager.cc(275)] Multiple instances of AudioManager detected</tspan>
-<tspan x="10" y="746">[4985:0406/232216:ERROR:sandbox_linux.cc(343)] InitializeSandbox() called with multiple threads \</tspan>
-<tspan x="10" y="762">in process gpu-process. </tspan>
-<tspan x="10" y="778"></tspan>
-<tspan x="10" y="794">browserTest - opened url /home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/bu\</tspan>
-<tspan x="10" y="810">ild/apidoc.html</tspan>
-<tspan x="10" y="826"></tspan>
-<tspan x="10" y="842">[4923:0406/232216:ERROR:browser_gpu_channel_host_factory.cc(131)] Failed to create channel.</tspan>
+<tspan x="10" y="650">[6642:0406/232352:ERROR:browser_gpu_channel_host_factory.cc(131)] Failed to create channel.</tspan>
+<tspan x="10" y="666"></tspan>
+<tspan x="10" y="682">browserTest - opened url /home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/bu\</tspan>
+<tspan x="10" y="698">ild/apidoc.html</tspan>
+<tspan x="10" y="714"></tspan>
+<tspan x="10" y="730">merging file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/build/test-r\</tspan>
+<tspan x="10" y="746">eport.json to test-report</tspan>
+<tspan x="10" y="762">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
+<tspan x="10" y="778">[6657:0406/232353:WARNING:audio_manager.cc(314)] Multiple instances of AudioManager detected</tspan>
+<tspan x="10" y="794">[6657:0406/232353:WARNING:audio_manager.cc(275)] Multiple instances of AudioManager detected</tspan>
+<tspan x="10" y="810">[6728:0406/232353:ERROR:sandbox_linux.cc(343)] InitializeSandbox() called with multiple threads \</tspan>
+<tspan x="10" y="826">in process gpu-process. </tspan>
+<tspan x="10" y="842">[6657:0406/232353:ERROR:browser_gpu_channel_host_factory.cc(131)] Failed to create channel.</tspan>
 <tspan x="10" y="858"></tspan>
-<tspan x="10" y="874">browserTest - opened url http://127.0.0.1:64134?modeTest=1</tspan>
+<tspan x="10" y="874">browserTest - opened url http://127.0.0.1:63498?modeTest=1</tspan>
 <tspan x="10" y="890"></tspan>
-<tspan x="10" y="906">[4923:0406/232218:INFO:CONSOLE(250)] "----------|-----------|-----------|-----------|-----------\</tspan>
+<tspan x="10" y="906">[6657:0406/232354:INFO:CONSOLE(250)] "----------|-----------|-----------|-----------|-----------\</tspan>
 <tspan x="10" y="922">|</tspan>
 <tspan x="10" y="938">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 <tspan x="10" y="954">----------|-----------|-----------|-----------|-----------|</tspan>
@@ -64,10 +64,10 @@
 <tspan x="10" y="986">All files |       100 |       100 |       100 |       100 |</tspan>
 <tspan x="10" y="1002">----------|-----------|-----------|-----------|-----------|</tspan>
 <tspan x="10" y="1018">", source: file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/electron.\</tspan>
-<tspan x="10" y="1034">15b4593569f0.f93ccaf3da20c.html (250)</tspan>
-<tspan x="10" y="1050">[4923:0406/232218:INFO:CONSOLE(250)] "created coverage file:///tmp/build/coverage.html/index.htm\</tspan>
+<tspan x="10" y="1034">15b4594ce3d0.4255e47b202f.html (250)</tspan>
+<tspan x="10" y="1050">[6657:0406/232354:INFO:CONSOLE(250)] "created coverage file:///tmp/build/coverage.html/index.htm\</tspan>
 <tspan x="10" y="1066">l", source: file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/electron\</tspan>
-<tspan x="10" y="1082">.15b4593569f0.f93ccaf3da20c.html (250)</tspan>
+<tspan x="10" y="1082">.15b4594ce3d0.4255e47b202f.html (250)</tspan>
 <tspan x="10" y="1098">[node test-case 4 of 6 passed] - testCase_buildApp_default</tspan>
 <tspan x="10" y="1114"></tspan>
 <tspan x="10" y="1130">browserTest - created screenCapture file:///home/travis/build/npmdoc/node-npmdoc-google-closure-\</tspan>
@@ -89,7 +89,7 @@
 <tspan x="10" y="1386">browserTest - created screenCapture file:///home/travis/build/npmdoc/node-npmdoc-google-closure-\</tspan>
 <tspan x="10" y="1402">compiler-js/tmp/build/screenCapture.npmTest.browser..html</tspan>
 <tspan x="10" y="1418"></tspan>
-<tspan x="10" y="1434">browserTest - exit-code 0 - http://127.0.0.1:64134?modeTest=1</tspan>
+<tspan x="10" y="1434">browserTest - exit-code 0 - http://127.0.0.1:63498?modeTest=1</tspan>
 <tspan x="10" y="1450"></tspan>
 <tspan x="10" y="1466"></tspan>
 <tspan x="10" y="1482">browserTest - merged coverage from /home/travis/build/npmdoc/node-npmdoc-google-closure-compiler\</tspan>
@@ -117,8 +117,8 @@
 <tspan x="10" y="1834">eport.json to test-report</tspan>
 <tspan x="10" y="1850"></tspan>
 <tspan x="10" y="1866">-------------------------------------------------------</tspan>
-<tspan x="10" y="1882">| test-report - buildNpmdoc - node - linux v6.10.2 - 2017-04-06T23:21:53.076Z</tspan>
-<tspan x="10" y="1898">|   37300 ms            0 failed        6 passed      |</tspan>
+<tspan x="10" y="1882">| test-report - buildNpmdoc - node - linux v6.10.2 - 2017-04-06T23:23:09.722Z</tspan>
+<tspan x="10" y="1898">|   57279 ms            0 failed        6 passed      |</tspan>
 <tspan x="10" y="1914">-------------------------------------------------------</tspan>
 <tspan x="10" y="1930"></tspan>
 <tspan x="10" y="1946">created test-report file:///home/travis/build/npmdoc/node-npmdoc-google-closure-compiler-js/tmp/\</tspan>
@@ -128,6 +128,6 @@
 <tspan x="10" y="2010">npmTest - 0 failed tests</tspan>
 <tspan x="10" y="2026"></tspan>
 <tspan x="10" y="2042"></tspan>
-<tspan x="10" y="2058">[MODE_BUILD=npmTest] - 2017-04-06T23:22:33Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="2058">[MODE_BUILD=npmTest] - 2017-04-06T23:24:10Z - EXIT_CODE - 0</tspan>
 </text>
 </svg>
