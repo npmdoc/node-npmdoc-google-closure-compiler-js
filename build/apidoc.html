@@ -1,0 +1,360 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://developers.google.com/closure/compiler/"
+
+    >google-closure-compiler-js (v20170218.0.0)</a>
+</h1>
+<h4>Check, compile, transpile, optimize and compress JavaScript with Closure Compiler in JS</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.google-closure-compiler-js">module google-closure-compiler-js</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.google-closure-compiler-js.compile">
+            function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>compile
+            <span class="apidocSignatureSpan">(flags)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.google-closure-compiler-js.gulp">
+            function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>gulp
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.google-closure-compiler-js.logger">
+            function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>logger
+            <span class="apidocSignatureSpan">(options, output, logger)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.google-closure-compiler-js.webpack">
+            function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>webpack
+            <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.google-closure-compiler-js" id="apidoc.module.google-closure-compiler-js">module google-closure-compiler-js</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.google-closure-compiler-js.compile" id="apidoc.element.google-closure-compiler-js.compile">
+        function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>compile
+        <span class="apidocSignatureSpan">(flags)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compile = function (flags) {
+  const clone = {};
+  for (const k in flags) {
+    clone[k] = flags[k];
+  }
+  const out = jscomp(clone);
+
+  // hide weird GWT internals
+  out.warnings = Array.prototype.slice.call(out.warnings);
+  out.errors = Array.prototype.slice.call(out.errors);
+
+  return out;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.google-closure-compiler-js.gulp" id="apidoc.element.google-closure-compiler-js.gulp">
+        function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>gulp
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gulp = function () {
+  const events = require(&#x27;events&#x27;);
+  const path = require(&#x27;path&#x27;);
+
+  const compile = require(&#x27;../compile&#x27;);
+  const logger = require(&#x27;../logger&#x27;);
+  const File = require(&#x27;vinyl&#x27;);
+  const Transform = require(&#x27;stream&#x27;).Transform;
+
+  class CompilationStream extends Transform {
+    constructor(compilationOptions, pluginOptions) {
+      super({objectMode: true});
+
+      this.compilationOptions_ = compilationOptions;
+      this.pluginName_ = pluginOptions.pluginName || PLUGIN_NAME;
+      this.logger_ = pluginOptions.logger || (message =&#x3e; console.info(message));
+
+      this.fileList_ = [];
+    }
+
+    _transform(file, enc, cb) {
+      if (file.isNull()) {
+        // Ignore empty files.
+      } else if (file.isStream()) {
+        this.emit(&#x27;error&#x27;, new PluginError(this.pluginName_, &#x27;Streaming not supported&#x27;));
+      } else {
+        this.fileList_.push(file);
+      }
+      cb();
+    }
+
+    _flush(cb) {
+      const options = {};
+      for (const k in this.compilationOptions_) {
+        options[cleanupOptionKey(k)] = this.compilationOptions_[k];
+      }
+      options.jsCode = (options.jsCode || []).concat(this.fileList_.map(file =&#x3e; {
+        return {
+          // TODO(samthor): It&#x27;s not clear we always want to have modules rooted &#x27;here&#x27;
+          path: path.relative(process.cwd(), file.path),
+          src: file.contents.toString(),
+          sourceMap: file.sourceMap ? JSON.stringify(file.sourceMap) : undefined,
+        };
+      }));
+
+      const outputFile = options.jsOutputFile;
+      delete options.jsOutputFile;
+
+      const output = compile(options);
+      if (logger(options, output, this.logger_)) {
+        const message = `Compilation error, ${output.errors.length} errors`;
+        this.emit(&#x27;error&#x27;, new PluginError(this.pluginName_, message));
+      }
+
+      const file = new File({
+        path: outputFile || DEFAULT_OUTPUT_PATH,
+        contents: new Buffer(output.compiledCode),
+      });
+      if (output.sourceMap) {
+        file.sourceMap = JSON.parse(output.sourceMap);
+      }
+      this.push(file);
+
+      cb();
+    }
+  };
+
+  return function(compilationOptions, pluginOptions) {
+    return new CompilationStream(compilationOptions || {}, pluginOptions || {});
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### Gulp
+
+Your `gulpfile.js` should contain a task like this-
+
+```js
+const compiler = require(&#x27;google-closure-compiler-js&#x27;).<span class="apidocCodeKeywordSpan">gulp</span>();
+
+gulp.task(&#x27;script&#x27;, function() {
+return gulp.src(&#x27;./path/to/src.js&#x27;, {base: &#x27;./&#x27;})
+    // your other steps here
+    .pipe(compiler({
+        compilationLevel: &#x27;SIMPLE&#x27;,
+        warningLevel: &#x27;VERBOSE&#x27;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.google-closure-compiler-js.logger" id="apidoc.element.google-closure-compiler-js.logger">
+        function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>logger
+        <span class="apidocSignatureSpan">(options, output, logger)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logger = function (options, output, logger) {
+  logger = logger || console.warn;
+  // TODO(samthor): If this file has a sourceMap, then follow it back out of the rabbit hole.
+  function fileFor(file) {
+    if (!file) { return null; }
+
+    // Filenames are the same across source and externs, so prefer source files.
+    for (const files of [options.jsCode, options.externs]) {
+      if (!files) { continue; }
+
+      for (const cand of files) {
+        if (cand.path == file) {
+          return cand;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  function writemsg(color, msg) {
+    if (!msg.file &#x26;&#x26; msg.lineNo &#x3c; 0) {
+      logger(msg.type);
+    } else {
+      logger(`${msg.file}:${msg.lineNo} (${msg.type})`)
+    }
+    logger(msg.description);
+
+    const file = fileFor(msg.file);
+    if (file) {
+      const lines = file.src.split(&#x27;\n&#x27;);  // TODO(samthor): cache this for logger?
+      const line = lines[msg.lineNo - 1] || &#x27;&#x27;;
+      logger(color + line + COLOR_END);
+      logger(COLOR_GREEN + caretPrefix(line, msg.charNo) + &#x27;^&#x27; + COLOR_END);
+    }
+    logger(&#x27;&#x27;);
+  }
+
+  output.warnings.forEach(writemsg.bind(null, COLOR_YELLOW));
+  output.errors.forEach(writemsg.bind(null, COLOR_RED));
+
+  return output.errors.length &#x3e; 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.google-closure-compiler-js.webpack" id="apidoc.element.google-closure-compiler-js.webpack">
+        function <span class="apidocSignatureSpan">google-closure-compiler-js.</span>webpack
+        <span class="apidocSignatureSpan">(args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">webpack = function (args) {
+  const compile = require(&#x27;../compile&#x27;);
+  const logger = require(&#x27;../logger&#x27;);
+  const RawSource = require(&#x27;webpack-core/lib/RawSource&#x27;);
+  const SourceMapSource = require(&#x27;webpack-core/lib/SourceMapSource&#x27;);
+
+  args.test = args &#x26;&#x26; args.test ? new RegExp(args.test) : /\.js($|\?)/i;
+
+  this.apply = function(compiler) {
+    compiler.plugin(&#x27;compilation&#x27;, compilation =&#x3e; {
+      compilation.plugin(&#x27;normal-module-loader&#x27;, context =&#x3e; {
+        context.minimize = true;
+      });
+
+      compilation.plugin(&#x27;optimize-chunk-assets&#x27;, (chunks, callback) =&#x3e; {
+        chunks.forEach(chunk =&#x3e; {
+          const files = chunk.files.filter(name =&#x3e; args.test.test(name));
+          files.forEach(name =&#x3e; {
+            const options = args &#x26;&#x26; args.options ? args.options : {};  // TODO
+
+            const asset = compilation.assets[name];
+            const sourceMap = asset.map();
+            const file = {
+              path: name,
+              src: asset.source(),
+              sourceMap: sourceMap ? JSON.stringify(sourceMap) : undefined,
+            };
+            options.jsCode = [file];
+
+            const output = compile(options);
+            if (logger(options, output)) {
+              const message = `Compilation error, ${output.errors.length} errors`;
+              compilation.errors.push(new Error(message));
+              return;  // don&#x27;t save compilation
+            }
+
+            let result;
+            if (output.sourceMap) {
+              result = new SourceMapSource(
+                output.compiledCode, name, JSON.parse(output.sourceMap), file.src, file.sourceMap);
+            } else {
+              result = new RawSource(output.compiledCode);
+            }
+            compilation.assets[name] = result;
+
+          });
+        });
+
+        callback();
+      });
+
+    });
+  };
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
