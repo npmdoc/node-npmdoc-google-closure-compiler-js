@@ -1,6 +1,6 @@
 # npmdoc-google-closure-compiler-js
 
-#### api documentation for  [google-closure-compiler-js (v20170409.0.0)](https://developers.google.com/closure/compiler/)  [![npm package](https://img.shields.io/npm/v/npmdoc-google-closure-compiler-js.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-google-closure-compiler-js) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-google-closure-compiler-js.svg)](https://travis-ci.org/npmdoc/node-npmdoc-google-closure-compiler-js)
+#### basic api documentation for  [google-closure-compiler-js (v20170409.0.0)](https://developers.google.com/closure/compiler/)  [![npm package](https://img.shields.io/npm/v/npmdoc-google-closure-compiler-js.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-google-closure-compiler-js) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-google-closure-compiler-js.svg)](https://travis-ci.org/npmdoc/node-npmdoc-google-closure-compiler-js)
 
 #### Check, compile, transpile, optimize and compress JavaScript with Closure Compiler in JS
 
